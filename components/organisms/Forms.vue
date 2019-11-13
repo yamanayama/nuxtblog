@@ -24,14 +24,18 @@
 <style lang="scss" scoped>
 .form {
   &__block {
-    max-width: 680px;
     margin: 0 auto;
     text-align: center;
-    @include radius;
-    background-color: $white;
     padding: 32px 24px;
     margin: 32px auto;
   }
+}
+
+label{
+  display: block;
+  font-size: 1.3rem;
+  text-align: left;
+  color:  $white;
 }
 
 input {
@@ -49,20 +53,20 @@ textarea {
   font-size: 1em;
   padding: 15px 10px 10px;
   border: none;
-  background: $bg100;
-  color: $text100;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  background: $bg300;
+  color: $white;
   border-radius: 5px;
-  -moz-background-clip: padding;
-  -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 80%;
-  max-width: 600px;
+  letter-spacing: 0.01em;
+  width: 100%;
+  // max-width: 900px;
 }
+
+:focus {
+  border: 1px solid $primary;
+}
+
 ::-webkit-input-placeholder {
   color: $text100;
 }
@@ -94,10 +98,7 @@ label.error {
   label.error {
     width: 90%;
   }
-  input,
-  textarea {
-    width: 90%;
-  }
+
   body {
     padding-top: 10px;
   }
@@ -115,5 +116,12 @@ label.error {
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+}
+//tab
+@include md {
+  .form {
+    &__block {
+    }
+  }
 }
 </style>

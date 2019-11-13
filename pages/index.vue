@@ -45,7 +45,7 @@ article
   //-skill
   section(:class="$style.skill",)
     Title(title='skill')
-    slide-wide(v-bind:skills="skills" v-scroll="handleScroll")
+    slide-wide(:skills="skills" v-scroll="handleScroll")
     section(:class="$style.skillmap")
       h4(:class="$style.skillmap__title")
         |  使用可能ツール
@@ -189,7 +189,6 @@ $imgPath: "../assets/images/top/";
   align-items: center;
   z-index: 10;
   /* background: url("#{$imgPath}hero_bg_pc.jpg") no-repeat center center/cover; */
-  background: $bg200;
   margin: 0 auto 80px;
   padding: 0 20px;
 
@@ -352,14 +351,15 @@ h1 {
 .concept {
   margin: auto;
   padding-top: 80px;
+  background: $bg100;
   @include inView;
   @include secP;
 
   &__block {
-    @include secP;
     @include radius;
     position: relative;
     background: $primary;
+    padding: var(--space-md);
   }
 
   &__deco {
@@ -379,9 +379,12 @@ h1 {
 //tab
 @include md {
   .concept {
-    @include maxW;
-    width: 100%;
-    padding: 0;
+
+    &__block{
+      @include maxW;
+      width: 100%;
+      margin: auto;
+    }
 
     &__deco {
       top: -4rem;
@@ -403,6 +406,7 @@ h1 {
 ----------------------------------------------*/
 .skill {
   margin: auto;
+  background: $bg100;
   @include secP;
 
   &map {
@@ -468,7 +472,6 @@ h1 {
     @include radius;
     @include justify();
     position: relative;
-    background: $bg200;
     z-index: 1;
     color: $white;
   }
@@ -534,10 +537,10 @@ h1 {
 .portfolio {
   margin: auto;
   overflow: hidden;
+  background: $bg100;
   @include secP;
   /* background: $bg200 url("#{$imgPath}portfolio_bg.jpg") no-repeat center
     center/cover; */
-  background: $primary;
 
   &:hover {
     transition: transform 0.5s linear;
@@ -560,5 +563,6 @@ h1 {
 .contact {
   @include secP;
   text-align: center;
+  color: $white;
 }
 </style>

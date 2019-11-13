@@ -56,7 +56,7 @@ $fontFamilyEng100: mina, serif;
   // $bg500: ,
   // $bg400: ,
   $bgOVR :rgba(107, 103, 94, 0.3);
-  $bg300:#d7d4c5;
-  $bg200: #222;
+  $bg300: lighten(#111, 30%);
+  $bg200: #111;
   // $bg100: #efecd9;
   $bg100: #FDFDFD;

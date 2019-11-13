@@ -1,6 +1,6 @@
 <template lang="pug">
-div(:class="$style.slidewide__wrap")
-  ul(:class="$style.slidewide")
+div(:class="$style.slidewide")
+  ul(:class="$style.slidewide__wrap")
     li.shadow(v-for="skill in skills" :key="skill.id",:class="$style.slidewide__list")
       figure(:class="$style.slidewide__img")
         <img :src="skill.img" :alt="skill.title">
@@ -11,7 +11,7 @@ div(:class="$style.slidewide__wrap")
         button.modal.button.button__primary(:class="$style.button" :style="{ width: '70%' }" @click="openModal(skill)") Read More
           ico_right
 
-      modal(:val="postItem",v-if="showModal",@close="closeModal")
+    modal(:val="postItem",v-if="showModal",@close="closeModal")
 </template>
 
 <script>
@@ -69,16 +69,16 @@ export default {
 
 <style lang="scss" module>
 .slidewide {
-  margin: auto;
-  padding: 0;
-  display: flex;
-  overflow-x: auto;
-  overflow-y: hidden;
-  white-space: nowrap;
-  margin-bottom: 32px;
 
   &__wrap {
+    margin: auto;
+    padding: 0;
+    display: flex;
+    overflow-x: auto;
     overflow-y: hidden;
+    white-space: nowrap;
+    padding: var(--space-sm);
+    margin-bottom: 32px;
     -webkit-overflow-scrolling: touch;
   }
 
@@ -120,8 +120,11 @@ export default {
 
 @include md {
   .slidewide {
-    figure {
-      height: 200px;
+    &_wrap{
+
+      figure {
+        height: 200px;
+      }
     }
 
     &__list {
