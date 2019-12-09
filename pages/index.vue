@@ -13,7 +13,7 @@ article
             | Naomi
             br
             | Murakami
-        p.hero__text Hi, I'm <strong>Naomi Murakami</strong> of UI / UX designer and front-end engineers.
+        p.hero__text Hi, I'm <strong>Naomi Murakami</strong>. I am a UI / UX designer and front-end engineer. Have fun!
       .hero__imgcontainer
         //- picture
         //-   source(media="(min-width: 1000px)" srcset="@/assets/images/top/hero_bg_pc.jpg")
@@ -45,6 +45,8 @@ article
       .concept__catch
         .concept__catch__container
           .concept__catch__img
+      .concept__circle
+        span.circle(v-for="circle in circles" :key="circle.id")
 
   //-skill
   section.skill
@@ -153,6 +155,7 @@ export default {
 
   data: function() {
     return {
+      circles: ['circle1', 'circle2', 'circle3'],
       skills: [
         {
           id: 1,
@@ -428,7 +431,36 @@ h1 {
     color: $primary;
   }
 
-  &__text {
+  &__circle {
+    position: absolute;
+    $size: 380px;
+    width: $size;
+    height: $size;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+    &::after {
+      border-radius: 48%;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      /* background: linear-gradient(
+        to bottom,
+        lighten($key, 60%),
+        rgba(211, 127, 247, 0.3) 90%,
+        rgba(106, 150, 245, 0.5)
+      ); */
+      background: linear-gradient(
+        to bottom,
+        #8dbeffbb,
+        rgb(255, 204, 250) 90%,
+        rgba(245, 106, 171, 0.5)
+      );
+      animation: circleGrade 8s infinite linear;
+    }
   }
 }
 
