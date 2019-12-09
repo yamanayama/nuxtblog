@@ -1,26 +1,25 @@
 <template lang="pug">
-div(:class="$style.slidewide__wrap")
-  ul(:class="$style.slidewide")
-    li.shadow(v-for="skill in skills" :key="skill.id",:class="$style.slidewide__list")
-      figure(:class="$style.slidewide__img")
-        <img :src="skill.img" :alt="skill.title">
+.slidewide__wrap
+  ul.slidewide
+    li.shadow.slidewide__list(v-for="skill in skills" :key="skill.id")
+      figure.slidewide__img
+        img(:src="skill.img" :alt="skill.title")
       div
-        h3(:class="$style.slidewide__title") {{skill.title}}
-        p(:class!="$style.slidewide__text") {{skill.despriction}}
-        //- button.button(primary label="OK"@click="$emit('click', $event)")
-        button.modal.button.button__primary(:class="$style.button" :style="{ width: '70%' }" @click="openModal(skill)") Read More
-          ico_right
+        h3.slidewide__title {{skill.title}}
+        //- p(:class!="$style.slidewide__text") {{skill.despriction}}
+        p.slidewide__text {{skill.despriction}}
+        button.modal.button.button__secondary(:style="{ width: '70%' }" @click="openModal(skill)") Read More
+  modal(:val="postItem",v-if="showModal",@close="showModal = false")
 
-      modal(:val="postItem",v-if="showModal",@close="closeModal")
 </template>
 
 <script>
-import ico_right from "@/assets/images/svg/ico_right.svg";
-import Modal from "~/components/organisms/modal/index.vue";
-import Button from "~/components/organisms/button/index.vue";
+import ico_right from '@/assets/images/svg/ico_right.svg'
+import Button from '~/components/organisms/button/index.vue'
+import Modal from '~/components/organisms/modal/index.vue'
 
 export default {
-  name: "SlideWide",
+  name: 'SlideWide',
 
   // props: ["id", "title", "text"]
   props: {
@@ -29,48 +28,48 @@ export default {
     },
     type: {
       type: String,
-      default: ""
+      default: ''
     },
     width: {
       type: String,
-      default: ""
+      default: ''
     }
   },
 
   components: {
-    Modal,
     Button,
+    Modal,
     ico_right
   },
 
   data() {
     return {
       showModal: false,
-      postItem: ""
-    };
+      postItem: ''
+    }
   },
 
   openModal(skill) {
-    this.postItem = skill;
-    this.showModal = true;
+    this.postItem = skill
+    this.showModal = true
   },
 
   methods: {
     openModal(skill) {
-      this.postItem = skill;
-      this.showModal = true;
+      this.postItem = skill
+      this.showModal = true
     },
     closeModal() {
-      this.showModal = false;
+      this.showModal = false
     }
   }
-};
+}
 </script>
 
-<style lang="scss" module>
+<style lang="scss" scope>
 .slidewide {
   margin: auto;
-  padding: 0;
+  padding: 2.4rem 3.2rem;
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
@@ -84,12 +83,17 @@ export default {
 
   figure {
     width: 100%;
-    height: 200px;
+    height: 280px;
+    overflow: hidden;
 
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      /* transition: transform 0.1s linear;
+      &:hover {
+        transform: scale(1.1);
+      } */
     }
   }
 
@@ -115,6 +119,8 @@ export default {
   &__text {
     @include justify;
     margin: 0 auto 19px;
+    display: block;
+    text-align: center;
   }
 }
 
@@ -134,8 +140,7 @@ export default {
     }
 
     &__text {
-      @include justify;
-      margin: 0 24px 32px;
+      margin: 0 0 32px;
     }
   }
 }
@@ -149,43 +154,40 @@ export default {
   transition: 0.3s ease 0s;
   font-size: 1.3rem;
   position: relative;
+  border-radius: 30px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  height: 48px;
+  line-height: 0;
+  border-radius: 30px;
+  cursor: pointer;
 
   &__primary {
-    background: $primary;
-    height: 40px;
-    letter-spacing: 0.05em;
-    font-weight: 700;
     color: $white;
-    line-height: 0;
     border: none;
-    cursor: pointer;
-    @include radius;
     min-width: 120px;
+    background: $primary;
 
     &:hover {
-      background: darken($primary, 8%);
+      background: darken($primary, 30%);
+      color: $white;
     }
   }
 
   &__secondary {
-    height: 48px;
-    letter-spacing: 0.05em;
-    font-weight: 700;
     color: $primary;
-    line-height: 0;
-    border: 2px solid $primary;
-    cursor: pointer;
-    @include radius;
+    border: 1px solid $primary;
 
     &:hover {
       background: $primary;
+      color: $white;
     }
   }
 
   svg {
     width: 2.4rem;
     height: 2.4rem;
-    fill: $white;
+    fill: currentColor;
     position: absolute;
     right: 0;
     top: 50%;

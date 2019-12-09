@@ -4,25 +4,27 @@
     form#contact.netlify
       .form__block
         ul.form__list
-          li.form__list__item
+          li.form__item
             label
               | 名前
             input(type="text" name="name" placeholder="Name")
-          li.form__list__item
+          li.form__item
             label
               | メールアドレス
             input(type="email" name="email" placeholder="Email")
-          li.form__list__item
+          li.form__item
             label
               | メッセージ
             textarea(type="text" name="message" placeholder="Message")
-        button#submit(type="submit")
+        button.modal.button.button__primary(type="submit")
           | 送信する
 </template>
 
 
-<style lang="scss" scoped>
+<style lang="scss" scope>
 .form {
+  color: $text100;
+
   &__block {
     max-width: 680px;
     margin: 0 auto;
@@ -31,6 +33,15 @@
     background-color: $white;
     padding: 32px 24px;
     margin: 32px auto;
+  }
+
+  &__list {
+    padding: 0;
+    margin-bottom: 3.2rem;
+  }
+
+  &__item {
+    display: block;
   }
 }
 
@@ -49,7 +60,7 @@ textarea {
   font-size: 1em;
   padding: 15px 10px 10px;
   border: none;
-  background: $bg100;
+  background: $gray100;
   color: $text100;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -60,8 +71,12 @@ textarea {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  width: 80%;
-  max-width: 600px;
+  width: 100%;
+  margin: auto;
+
+  &::placeholder {
+    color: lighten($text100, 10%);
+  }
 }
 ::-webkit-input-placeholder {
   color: $text100;
@@ -75,8 +90,14 @@ textarea {
 :-ms-input-placeholder {
   color: $text100;
 }
+
+label {
+  display: block;
+  text-align: left;
+}
+
 label.error {
-  font-family: "Source Sans Pro", arial, sans-serif;
+  font-family: 'Source Sans Pro', arial, sans-serif;
   font-size: 1em;
   display: block;
   padding-top: 24px;
@@ -103,7 +124,7 @@ label.error {
   }
 }
 .message {
-  font-family: "Source Sans Pro", arial, sans-serif;
+  font-family: 'Source Sans Pro', arial, sans-serif;
   font-size: 1.1em;
   display: none;
   padding-top: 10px;

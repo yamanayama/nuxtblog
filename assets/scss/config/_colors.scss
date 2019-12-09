@@ -13,7 +13,7 @@
   // $secondary: #abd1be;
   $primary: #ff0096;
   // $primary:#e44121;
-  $key: #0D389E;
+  $key: #2f0075;
   $secondary: #C00384;
   $secondaryDark: darken($secondary,20%);
   $success: #088312;
@@ -24,7 +24,7 @@
 
   /* テキストカラー(若い番号から使用頻度高) */
   $text200: #222;
-  $text100: #222;
+  $text100: #2f0075;
 
   /* リンクカラー(若い番号から使用頻度高) */
   $link200: #{$primary};
@@ -56,7 +56,7 @@ $fontFamilyEng100: mina, serif;
   // $bg500: ,
   // $bg400: ,
   $bgOVR :rgba(107, 103, 94, 0.3);
-  $bg300:#d7d4c5;
-  $bg200: #222;
+  $bg300:rgb(249, 251, 252);
+  $bg200: $key;
   // $bg100: #efecd9;
   $bg100: #FDFDFD;

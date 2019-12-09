@@ -8,7 +8,7 @@
 
 <script>
 export default {
-  name: "Button",
+  name: 'Button',
   props: {
     primary: {
       type: Boolean,
@@ -24,52 +24,54 @@ export default {
     },
     type: {
       type: String,
-      default: ""
+      default: ''
     },
     width: {
       type: String,
-      default: ""
+      default: ''
     },
     methods: {
       click() {
-        this.$emit("myclick");
+        this.$emit('myclick')
       }
     }
   }
-};
+}
 </script>
 
 <style lang='scss' module>
 .button {
   transition: 0.3s ease 0s;
   font-size: 1.3rem;
-  width: 100%;
+  position: relative;
+  border-radius: 30px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  height: 48px;
+  line-height: 0;
+  border-radius: 30px;
+  cursor: pointer;
 
   &__primary {
-    background: $primary;
-    height: 48px;
-    letter-spacing: 0.05em;
-    font-weight: 700;
     color: $white;
-    line-height: 0;
     border: none;
-    cursor: pointer;
-    @include radius;
+    min-width: 120px;
+    background: $primary;
 
     &:hover {
       background: darken($primary, 30%);
+      color: $white;
     }
   }
 
   &__secondary {
-    height: 48px;
-    letter-spacing: 0.05em;
-    font-weight: 700;
     color: $primary;
-    line-height: 0;
-    border: 2px solid $primary;
-    cursor: pointer;
-    @include radius;
+    border: 1px solid $primary;
+
+    &:hover {
+      background: $primary;
+      color: $white;
+    }
   }
 }
 </style>

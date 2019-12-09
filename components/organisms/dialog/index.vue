@@ -1,45 +1,24 @@
 <template lang="pug">
-  transition(name="modal")
-    .modal__overlay(@click="$emit('close')")
-      .modal
-        .modal__block
-          img.modal__img(:src="val.img" :alt="val.title")
-          section.modal__box
-            h4.modal__title {{ val.title }}
-            p.modal__text {{val.text}}
-          button.modal__close(type="button",@click="$emit('close')")
+  transition(name="dialog")
+    div(:class="$style.dialog__overlay",@click="$emit('close')")
+      div(:class="$style.dialog")
+        div(:class="$style.dialog__block")
+          p(:class!="$style.dialog__text") {{val.despriction}}
+          button.dialog__close(type="button",@click="$emit('close')")
             ico_close
 
 </template>
 
 <script>
-import ico_close from '@/assets/images/svg/ico_close.svg'
-
-export default {
-  name: 'Modal',
-  props: {
-    val: Object
-  },
-
-  components: {
-    ico_close
-  },
-
-  methods: {
-    close() {
-      this.$emit('close')
-    }
-  }
-}
+export default {}
 </script>
 
 <style lang='scss' scope>
-.modal {
+.dialog {
   @include centerF;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  bottom: 10px;
+  right: 10px;
 
   &__overlay {
     position: fixed;
@@ -111,33 +90,9 @@ export default {
       cursor: pointer;
     }
   }
-  /* 往路のアニメーション全体に対して設定をするためのクラス */
-  &-enter-active {
-    transition: opacity 0.2s;
-  }
-  /* 往路の開始状態を設定するためのクラス */
-  &-enter {
-    opacity: 0;
-  }
-  /* 往路の終了状態を設定するためのクラス */
-  &-enter-to {
-    opacity: 1;
-  }
-  /* 復路のアニメーション全体に対して設定をするためのクラス */
-  &-leave-active {
-    transition: opacity 0.6s;
-  }
-  /* 復路の開始状態を設定するためのクラス */
-  &-leave {
-    opacity: 1;
-  }
-  /* 復路の終了状態を設定するためのクラス */
-  &-leave-to {
-    opacity: 0;
-  }
 }
 @include md {
-  .modal {
+  .dialog {
     &__block {
       display: flex;
     }

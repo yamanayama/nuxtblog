@@ -3,83 +3,105 @@
 
 article
   //- hero
-  div(:class="$style.hero")
-    div(:class="$style.hero__block",v-scroll="handleScroll")
-      div(:class="$style.hero__info")
-        h1(:class="$style.hero__logo")
-          span(:class="$style.small") Design & Frontend
-          span(:class="$style.medium")
+  .hero
+    .hero__block(v-scroll="handleScroll")
+      .hero__info
+        h1.hero__logo
+          span.small Design & Frontend
+          span.medium
             //- img(:class="$style.hero__logo")(src="@/assets/images/svg/logo.svg", alt="naomoon")
             | Naomi
             br
             | Murakami
-        p(:class="$style.hero__text") aaaaaaaaaaaaaaaaaaaaaaaaaaaa
-      div(:class="$style.hero__imgcontainer")
-        //- img(src="@/assets/images/svg/dsmmy_02.svg", alt="")
+        p.hero__text Hi, I'm <strong>Naomi Murakami</strong> of UI / UX designer and front-end engineers.
+      .hero__imgcontainer
         //- picture
         //-   source(media="(min-width: 1000px)" srcset="@/assets/images/top/hero_bg_pc.jpg")
         //-   source(media="(min-width: 480px)" srcset="@/assets/images/top/hero_bg_sp.jpg")
         //-   img(src="@/assets/images/top/hero_bg_sp.jpg", alt="")
 
-        div(:class="$style.hero__scroll",v-scroll="handleScroll")
+        .hero__scroll(v-scroll="handleScroll")
           a(href="#concept")
             span
             em Scroll
 
 
   //-consept
-  section#concept.maxWidth(:class="$style.concept ",v-scroll="handleScroll")
-    div(:class="$style.concept__block")
+  section#concept.maxWidth.concept(v-scroll="handleScroll")
+    .concept__block
       Title(title='Design & Frontend')
-      p(:class="$style.concept__deco") Concept Work
-      p(:class="$style.concept__text")
-        | デザインとフロントエンドが好き
+      //- p.concept__deco Concept Work
+      p.concept__text
+        | 巷ではデザイナー3.0だとか、UXデザインが叫ばれていますね。
         br
-        | デザインとフロントエンドが好きデザインとフロロントエンドが好きデザインとフロロントエンドが好き
+        | 私はBTCでいうところの、T/Cタイプのデザイナーです。
+      p.concept__text
+        | 「ユーザーの抱えた課題を解決したい<br>何を考えて、今何に困り、何を望んでいるのか
+        <br>ストーリーとコンテキストを理解した上で、プロダクトに落としこみたい」
+      p.concept__text
+        | 結果、ユーザーインタビューからUI設計、フロントエンド開発まで行う、ちょっと変わった越境型デザイナーとなってしまいました。
         br
-        | デザインとフロントエンドが好きデザインとフロロントエンドが好きデザインとフロロントエンドが好き
-      div(:class="$style.concept__catch")
-        div(:class="$style.concept__catch__container")
-          div(:class="$style.concept__catch__img")
+        | ツールが普及し誰もが簡単にWebサービスを作れるようになった現代で、「つくる」「かんがえる」どちらも欠けることなく、磨きつづけることが自分の生存戦略です。
+      .concept__catch
+        .concept__catch__container
+          .concept__catch__img
 
   //-skill
-  section(:class="$style.skill",)
+  section.skill
     Title(title='skill')
-    slide-wide(v-bind:skills="skills" v-scroll="handleScroll")
-    section(:class="$style.skillmap")
-      h4(:class="$style.skillmap__title")
+    slide-wide(v-bind:skills="skills" @close="closeModal")
+    section.skillmap
+      h4.skillmap__title
         |  使用可能ツール
-      ul(:class="$style.skillmap__list")
-        li(v-for="skillmap in skillmaps" :secondary="skillmap.id" :class="$style.skillmap__item") {{skillmap}}
+      ul.skillmap__list
+        li.skillmap__item(v-for="skillmap in skillmaps" :secondary="skillmap.id") {{skillmap}}
 
   //-profile
-  div(:class="$style.profile" v-scroll="handleScroll")
-    section(:class="$style.profile__block")
+  .profile(v-scroll="handleScroll")
+    section.shadow.profile__block
       Title(title='Naomi Murakami')
-      p(:class="$style.profile__deco") profile
-      p(:class="$style.profile__text")
-        | 一般職、ゲームイラストレーターを経てWEB業界へきました。受託制作会社でWEBデザイナー・コーダー・ディレクター兼任後、インハウスのUIデザイナーとして働いています。
-      p(:class="$style.profile__text")
+      //- .profile__deco profile
+      .profile__text
+        | 自称Qiita生まれ、Qiita育ちのインハウスデザイナーです。<br>一般職、ゲームイラストレーターを経てWEB業界へきました。受託制作会社でWEBデザイナー・コーダー・ディレクター兼任後、インハウスのUIデザイナーとして働いています。
+      p.profile__text
         | 普段はGAなどのデータ分析をもとに、WEBサービスのUI開発でLPOやABテストを行うことで、PDCAを回しています。
-      p(:class="$style.profile__text")
+      p.profile__text
         | マークアップ（CSS,アニメーション）が得意で、趣味はフロンエンドの個人開発です。Vue(Nuxt),Reactチョットデキル。
-      p(:class="$style.profile__sns")
+      p.profile__sns
         a(href="https://twitter.com/yamanayama" target="_blank")
           ico_twitter
 
   //-portfolio
-  div(:class="$style.portfolio")
-    section(:class="$style.portfolio__block")
+  .portfolio
+    section.portfolio__block
       Title(title='portfolio')
-      p(:class="$style.profile__text") お尋ねください。
+      p.profile__text お尋ねください。
       //- nuxt-link(v-scroll-to='"#contact"' to)
-      button.button__secondary(:class="$style.button",v-scroll-to='"#contact"') お問い合わせへ
+      button.button.button__secondary(v-scroll-to='"#contact"') お問い合わせへ
 
+  . blog
+    section.blog__block
+      Title(title='blog')
+       card(
+        v-for="(post,i ) in posts"
+        :key="i"
+        :title="post.fields.title"
+        :id="post.sys.id"
+        :date="post.sys.updatedAt")
 
   //-contact
-  section#contact(:class="$style.contact")
+  section#contact.contact
+    svg.waveline(xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 24 150 28 " preserveaspectratio="none")
+      defs
+        path#gentle-wave(d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z")
+      g.wave1
+        use(xlink:href="#gentle-wave" x="50" y="3" fill="#cfafff")
+      g.wave2
+        use(xlink:href="#gentle-wave" x="50" y="0" fill="#ae78ff")
+      g.wave3
+        use(xlink:href="#gentle-wave" x="50" y="9" fill="#2f0075")
     Title(title='contact')
-    p(:class="$style.profile__text") お急ぎの方はSNSからお願いします。
+    p.profile__text お急ぎの方はSNSからお願いします。
     Forms
 
 
@@ -87,21 +109,45 @@ article
 </template>
 
 <script>
-import Forms from "~/components/organisms/Forms.vue";
-import Title from "~/components/atoms/title/index.vue";
-import ico_twitter from "@/assets/images/svg/ico_twitter.svg";
-import SlideWide from "~/components/organisms/slidewide/index.vue";
+//contentful
+import { createClient } from '~/plugins/contentful.js'
+
+//compornent
+import Forms from '~/components/organisms/Forms.vue'
+import Title from '~/components/atoms/title/index.vue'
+import SlideWide from '~/components/organisms/slidewide/index.vue'
+import Card from '~/components/organisms/card/index.vue'
 // import Subtitle from "~/components/atoms/subtitle/index.vue";
 
+//svg
+import ico_twitter from '@/assets/images/svg/ico_twitter.svg'
+
+const client = createClient()
+
 export default {
+  transition: 'slide-left',
+  //blog
+  asyncData({ env, params }) {
+    return client
+      .getEntries(env.CTF_BLOG_POST_TYPE_ID)
+      .then((entries) => {
+        return {
+          posts: entries.items
+        }
+      })
+      .catch(console.error)
+  },
+
   head: {
-    title: "Naomoon"
+    title: 'Naomi Murakami'
   },
 
   components: {
     Forms,
     Title,
     SlideWide,
+    Card,
+    //svg
     ico_twitter
   },
 
@@ -110,76 +156,90 @@ export default {
       skills: [
         {
           id: 1,
-          img: require("@/assets/images/svg/dammy_01.svg"),
-          title: "Design",
-          despriction: "Design",
+          img: require('@/assets/images/top/skill_01.png'),
+          title: 'Design',
+          despriction: 'ユーザーインタビュー・UI設計など',
           text:
-            "ワイヤー制作、UI設計、ユーザーインタビュー、LPO、デザインガイドライン作成など幅広く対応できます。受託制作でCMSデザインを経験し、インハウスでサービスUI、LPOでPDCAを回しながら、スタートアップならではDPCAも展開中です。UX勉強中。"
+            'ワイヤー制作、UI設計、ユーザーインタビュー、LPO、Storybookを用いたデザインフレームワークの作成など幅広く対応できます。受託制作でCMSデザインを経験し、インハウスでサービスUI、LPOでPDCAを回しながら、スタートアップならではDPCAも展開中です。UX勉強中。'
         },
         {
           id: 2,
-          img: require("@/assets/images/svg/dammy_01.svg"),
-          title: "Cording",
-          despriction: "Cording",
+          img: require('@/assets/images/top/skill_02.png'),
+          title: 'Frontend',
+          despriction: 'マークアップからフロントエンドまで対応',
           text:
-            "マークアップ、スタイルからCSSアニメーション、JSフレームワーク制作まで行います。セマンティックで秩序あるコーディングを行います。アクセシビリティやりたい勢です。"
+            'マークアップ、スタイルからCSSアニメーション、JSフレームワーク制作まで行います。セマンティックで秩序あるコーディングを行います。アクセシビリティやりたい勢です。状態管理を勉強中です。今回のポートフォリオはJAMstack（Nuxt・Contentful・Netlify）で構成しています。'
         },
         {
           id: 3,
-          img: require("@/assets/images/svg/dammy_01.svg"),
-          title: "Marketing",
-          despriction: "Marketing",
-          text: "GAなどの解析"
+          img: require('@/assets/images/top/skill_03.png'),
+          title: 'Marketing',
+          despriction: 'GAなどの数値を元に、仮説検証・効果検証',
+          text:
+            'GAなどの数値を元に、仮説検証・効果検証をしながらPDCAを回していきます。ユーザーが何に課題を感じ、どこにアプローチすれば改善されるのか、というユーザーストーリーを検討しながらPDCAを回します。'
         },
         {
           id: 4,
-          img: require("@/assets/images/svg/dammy_01.svg"),
-          title: "Illustration",
-          despriction: "Illustration",
-          text: "イラスト"
+          img: require('@/assets/images/top/skill_03.png'),
+          title: 'Illustration',
+          despriction: '実は元イラストレーターです',
+          text:
+            '実はゲーム業界のイラストレーターを4年近く経験しました。ラインイラスト、アイコンイラストなど得意ですが、こちらはサブスキルです。'
         }
       ],
       skillmaps: [
-        "Photoshop",
-        "XD",
-        "Illustrator",
-        "HTML/CSS",
-        "Pug",
-        "Sass",
-        "Git",
-        "Gulp",
-        "jQuery",
-        "WordPress",
-        "React",
-        "Vue(Nuxt)",
-        "SpriteStudio"
+        'Photoshop',
+        'XD',
+        'Illustrator',
+        'HTML/CSS',
+        'Pug',
+        'Sass',
+        'Git',
+        'Gulp',
+        'jQuery',
+        'WordPress',
+        'React',
+        'Vue(Nuxt)',
+        'SpriteStudio'
       ]
-    };
+    }
+
+    active: false
   },
   computed: {
     limitCount() {
-      return this.skill.slice(0, 3);
+      return this.skill.slice(0, 3)
     }
   },
 
   methods: {
+    closeModal() {
+      this.showModal = false
+    },
     handleScroll: function(evt, el) {
-      console.log(window.scrollY);
+      console.log(window.scrollY)
       if (window.scrollY > 50) {
         el.setAttribute(
-          "style",
-          "opacity: 1; transform: translate3d(0, -10px, 0)"
-        );
+          'style',
+          'opacity: 1; transform: translate3d(0, -10px, 0)'
+        )
       }
-      return window.scrollY > 100;
+      return window.scrollY > 100
+    }
+  },
+  head() {
+    return {
+      bodyAttrs: {
+        class: this.showModal ? 'modal__overlay' : ''
+      }
     }
   }
-};
+}
 </script>
 
-<style lang="scss" module>
-@import "@/assets/scss/config/scrollicon";
-$imgPath: "../assets/images/top/";
+<style lang="scss" scope>
+@import '@/assets/scss/config/scrollicon';
+$imgPath: '../assets/images/top/';
 
 /* hero
 ----------------------------------------------*/
@@ -188,16 +248,14 @@ $imgPath: "../assets/images/top/";
   position: relative;
   align-items: center;
   z-index: 10;
-  /* background: url("#{$imgPath}hero_bg_pc.jpg") no-repeat center center/cover; */
-  background: $bg200;
   margin: 0 auto 80px;
   padding: 0 20px;
+  background: url(#{$imgPath}hero_bg.png) no-repeat right top;
 
   &__block {
     display: flex;
     position: relative;
     height: 100%;
-    color: $white;
     max-width: 1240px;
     width: 100%;
     height: 90vmax;
@@ -260,7 +318,7 @@ $imgPath: "../assets/images/top/";
           position: absolute;
           top: 10px;
           left: 50%;
-          content: "";
+          content: '';
           width: 6px;
           height: 6px;
           margin-left: -3px;
@@ -327,8 +385,7 @@ h1 {
 //tab
 @include md {
   .hero {
-
-    &__block{
+    &__block {
       height: 90vh;
       min-height: 720px;
       max-height: 1080px;
@@ -359,7 +416,6 @@ h1 {
     @include secP;
     @include radius;
     position: relative;
-    background: $primary;
   }
 
   &__deco {
@@ -460,17 +516,14 @@ h1 {
   margin: auto;
   @include inView;
   @include secP;
-  background: $bg200;
 
   &__block {
     width: 98%;
-    padding: 3.2rem 1.6rem;
+    padding: 32px 24px;
     @include radius;
     @include justify();
     position: relative;
-    background: $bg200;
     z-index: 1;
-    color: $white;
   }
 
   &__deco {
@@ -534,10 +587,11 @@ h1 {
 .portfolio {
   margin: auto;
   overflow: hidden;
+  text-align: center;
   @include secP;
-  /* background: $bg200 url("#{$imgPath}portfolio_bg.jpg") no-repeat center
-    center/cover; */
-  background: $primary;
+  margin-bottom: 80px;
+  /* border: 1px solid $bg300; */
+  background: $bg300;
 
   &:hover {
     transition: transform 0.5s linear;
@@ -547,7 +601,6 @@ h1 {
 //tab
 @include md {
   .portfolio {
-    text-align: center;
   }
 }
 
@@ -558,7 +611,64 @@ h1 {
 /* contact
 ----------------------------------------------*/
 .contact {
-  @include secP;
+  padding: 80px 20px;
   text-align: center;
+  background: $key;
+  position: relative;
+  color: $white;
+  background: linear-gradient(to bottom, $key, darken($key, 8%));
+}
+
+.waveline {
+  display: block;
+  width: 100%;
+  height: 60px;
+  max-height: 60px;
+  margin: 0;
+  z-index: 5;
+  top: -40px;
+  position: absolute;
+  left: 0px;
+  float: left;
+  padding-top: 4px;
+}
+
+@mixin move($id: 1, $speed: 10s) {
+  .wave#{$id} > use {
+    animation: move#{$id} $speed linear infinite;
+    &:nth-child(1) {
+      animation-delay: -2s;
+    }
+  }
+}
+
+@include move();
+@include move($id: 2, $speed: 8s);
+@include move($id: 3, $speed: 6s);
+
+@mixin keyMove($id: 1, $start: 85, $end: -90) {
+  @keyframes move#{$id} {
+    0% {
+      transform: translate(85px, 0%);
+    }
+    100% {
+      transform: translate(-90px, 0%);
+    }
+  }
+}
+
+@include keyMove();
+@include keyMove($id: 2, $start: -90, $end: 85);
+@include keyMove($id: 3);
+
+//tab
+@include md {
+  .portfolio {
+    text-align: center;
+  }
+}
+
+.links {
+  padding-top: 15px;
 }
 </style>

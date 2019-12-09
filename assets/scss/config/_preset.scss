@@ -40,3 +40,16 @@ $sp: 480px;
 		@content;
 	}
 }
+
+//test
+.modal__overlay {
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100%;
+	background: $bgOVR;
+	transition: opacity 0.3s ease;
+	overflow-y: hidden;
+  position: fixed;
+}

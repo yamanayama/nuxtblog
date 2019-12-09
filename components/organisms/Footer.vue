@@ -1,27 +1,27 @@
 <template lang="pug">
-  footer(:class="$style.footer")
+  footer.footer
     footer-logo
-    p(:class="$style.copyright") &copy;
+    p.copyright &copy;
       | naomoon
 </template>
 
 <script>
-import Footerlogo from "@/assets/images/svg/logo.svg";
+import Footerlogo from '@/assets/images/svg/logo.svg'
 
 export default {
-  name: "Footerlogo",
+  name: 'Footerlogo',
   components: {
     Footerlogo
   }
-};
+}
 </script>
 
-<style　lang="scss" module>
+<style　lang="scss" scope>
 .footer {
   width: 100%;
   height: auto;
   text-align: center;
-  background: $bg200;
+  background: darken($key, 8%);
   padding: 40px 0;
   color: $white;
 }
