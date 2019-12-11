@@ -2,8 +2,7 @@
   section.slug
     h1.slug_title {{ article.fields.title }}
     p.slug_date {{ article.sys.updatedAt }}
-    div
-      {{ article.fields.body.content[0].content[0].value }}
+    div {{ article.fields.body.content[0].content[0].value }}
 </template>
 
 <script>

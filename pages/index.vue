@@ -81,7 +81,7 @@ article
       //- nuxt-link(v-scroll-to='"#contact"' to)
       button.button.button__secondary(v-scroll-to='"#contact"') お問い合わせへ
 
-  . blog
+  .blog
     section.blog__block
       Title(title='blog')
        card(

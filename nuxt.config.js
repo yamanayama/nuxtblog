@@ -10,6 +10,9 @@ const ctfConfig = getConfigForKeys([
 const { createClient } = require('./plugins/contentful')
 const cdaClient = createClient(ctfConfig)
 
+// require('dotenv').config();
+// // const { API_KEY } = process.env;
+
 export default {
   /*
   ** Headers of the page
