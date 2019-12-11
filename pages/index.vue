@@ -117,7 +117,7 @@ import { createClient } from '~/plugins/contentful.js'
 //compornent
 import Forms from '~/components/organisms/Forms.vue'
 import Title from '~/components/atoms/title/index.vue'
-import SlideWide from '~/components/organisms/slidewide/index.vue'
+import SlideWide from '~/components/organisms/slideWide/index.vue'
 import Card from '~/components/organisms/card/index.vue'
 // import Subtitle from "~/components/atoms/subtitle/index.vue";
 
