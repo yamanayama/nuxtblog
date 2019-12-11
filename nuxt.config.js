@@ -14,6 +14,7 @@ const cdaClient = createClient(ctfConfig)
 // // const { API_KEY } = process.env;
 
 export default {
+  target: 'node',
   /*
   ** Headers of the page
   */
